@@ -25,6 +25,11 @@ The project would be available for students to use once completed, and the princ
 There are several parts to this project. The core element that drives it is the algorithm that creates the schedules. There is a back end, which includes sending requests to the Temple server to keep the data up-to-date, parsing the HTML responses (the server won't return anything else, I've tried), and potentially putting the data into an intermediate database to have on-hand for the application. The front end would be one or more web pages to provide the application with a user interface to collect input and display the results.
 I am able to work on any aspect of the project, though I feel I would be most equipped to implement the algorithm and parts of the back-end, as I do not have very much experience in front-end web design.
 
+## Additional Insights
+Luke: Web scraping can often be unreliable as web sites can randomly block a scraper through pattern / bot detection. Additionally, if a web sites design changes, the entire parsing process can change. ALthough we may be able to scrape periodically, it would be a good idea to cache scraped information in a database or get direct access to a database to avoid web scraping altogether.
+
+Saad: Writing a robust web scraper is often difficult because many sites try to prevent web scraping activities.Scraping simple website that don't have js/ajax mechanism is not easy but simpler websites work just fine. Since Temple does not let us scrape their website, we should try to get access to Temple's database.
+
 ## Required Resources
 - Group members 
    * Knowledge of front-end web design and databases/cloud services
