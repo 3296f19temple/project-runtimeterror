@@ -30,6 +30,10 @@ I am able to work on any aspect of the project, though I feel I would be most eq
    * Knowledge of front-end web design and databases/cloud services
 - Hardware and software resources required:
    * Server/hosting (consider AWS/cloud)
+
+## Additional Insights
+- Luke
+  Web scraping can often be unreliable as web sites can randomly block a scraper through pattern / bot detection. Additionally, if a web sites design changes, the entire parsing process can change. ALthough we may be able to scrape periodically, it would be a good idea to cache scraped information in a database or get direct access to a database to avoid web scraping altogether.
   
 ## Team Members
 -Ahmad Saad
