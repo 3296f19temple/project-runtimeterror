@@ -34,7 +34,9 @@ I am able to work on any aspect of the project, though I feel I would be most eq
 ## Additional Insights
 - Luke:
   Web scraping can often be unreliable as web sites can randomly block a scraper through pattern / bot detection. Additionally, if a web sites design changes, the entire parsing process can change. ALthough we may be able to scrape periodically, it would be a good idea to cache scraped information in a database or get direct access to a database to avoid web scraping altogether.
- 
+  
+  - Dishant:
+    Although we are trying to scrape coursicle, it might be better to scrape directly from the temple course offering that are available to the open public. This might create issues with Temple that might have to be dealt with later on.
 ## Environment
 - Programming Language: Python3, Oracle SQL, HTML, CSS, JavaScript
 - Development Environment: Android Studio, Emacs, Oracle SQL Developer
