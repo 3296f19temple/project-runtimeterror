@@ -18,15 +18,21 @@ def get_page(webPage):
     
     # get landing page of category
     driver.get(webPage)
-    
     # wait for javascript
     res = driver.execute_script("return document.documentElement.outerHTML")
-
+    driver.find_element_by_xpath('//*[@id="classSearchLink"]/span').click()
+    driver.find_element_by_xpath('//*[@id="select2-chosen-1"]').click()
+    #driver.find_element_by_xpath('//*[@id="202003"]')
+    driver.find_element_by_xpath('//*[@id="s2id_autogen1_search"]').send_keys('2020 Spring')
+    
+    #driver.sendKeys("2020 Spring")
+    driver.find_element_by_xpath('//*[@id="term-go"]').click()
+    # print("course name is "+ courseNames)
     print("Obtained " + webPage)
     return res
 
 if __name__ == "__main__":
-    webPage = "https://www.amazon.com"
+    webPage = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/classSearch/classSearch"
     page = get_page(webPage)
 
-    print(page)
+    # print(page)

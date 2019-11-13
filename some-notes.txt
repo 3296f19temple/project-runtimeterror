@@ -1,0 +1,56 @@
+1. Requests has a json converter 
+
+
+xPath stuff
+
+to hit continue 
+
+//*[@id="term-go"]
+/html/body/main/div[3]/div/div/div[2]/div[3]/button
+
+to hit search 
+//*[@id="search-go"]
+/html/body/main/div[3]/div/div/div/div/div[1]/div[2]/div[2]/button
+
+to get to next page
+//*[@id="searchResultsTable"]/div[2]/div/button[3]
+/html/body/main/div[3]/div/div/div/div/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div/button[3]
+
+table row for first class
+//*[@id="table1"]/thead/tr
+/html/body/main/div[3]/div/div/div/div/div[2]/div[8]/div[2]/div[1]/div[1]/div[1]/div/table/thead/tr
+
+table row for second class
+//*[@id="table1"]/tbody/tr[2]
+
+for the whole table 
+//*[@id="table1"]/tbody
+
+https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/searchResults/searchResults?txt_term=202003&startDatepicker=&endDatepicker=&uniqueSessionId=1li1r1573574905230&pageOffset=0&pageMaxSize=10&sortColumn=subjectDescription&sortDirection=asc&[object%20Object]
+
+xPath of row
+//*[@id="table1"]/tbody/tr[1]
+
+xPath of name field
+//*[@id="table1"]/tbody/tr[1]/td[5]
+
+xPath of a class for course name
+
+//*[@id="table1"]/tbody/tr[1]/td[5]/a
+
+xPath of div for meeting times
+
+//*[@id="table1"]/tbody/tr[1]/td[6]/div
+
+xPath for instructor
+//*[@id="table1"]/tbody/tr[1]/td[8]/a
+
+Have to look up by class names as xPaths differ between rows
+section-details-link for the course name
+meeting for the class time
+
+202003
+
+s2id_autogen1_search
+
+//*[@id="classSearchLink"]/span
