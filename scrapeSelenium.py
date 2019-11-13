@@ -20,8 +20,13 @@ def get_page(webPage):
     driver.get(webPage)
     # wait for javascript
     res = driver.execute_script("return document.documentElement.outerHTML")
-    courseNames = driver.find_elements_by_class_name('section-details-link')
-    courseTimes = driver.find_elements_by_class_name('meeting')
+    driver.find_element_by_xpath('//*[@id="classSearchLink"]/span').click()
+    driver.find_element_by_xpath('//*[@id="select2-chosen-1"]').click()
+    #driver.find_element_by_xpath('//*[@id="202003"]')
+    driver.find_element_by_xpath('//*[@id="s2id_autogen1_search"]').send_keys('2020 Spring')
+    
+    #driver.sendKeys("2020 Spring")
+    driver.find_element_by_xpath('//*[@id="term-go"]').click()
     # print("course name is "+ courseNames)
     print("Obtained " + webPage)
     return res

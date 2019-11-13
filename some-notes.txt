@@ -48,3 +48,9 @@ xPath for instructor
 Have to look up by class names as xPaths differ between rows
 section-details-link for the course name
 meeting for the class time
+
+202003
+
+s2id_autogen1_search
+
+//*[@id="classSearchLink"]/span
