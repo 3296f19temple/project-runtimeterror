@@ -20,8 +20,8 @@ def get_page(webPage):
     driver.get(webPage)
     # wait for javascript
     res = driver.execute_script("return document.documentElement.outerHTML")
-    courseNames[] = driver.find_elements_by_class_name('section-details-link')
-    courseTimes[] = driver.find_elements_by_class_name('meeting')
+    courseNames = driver.find_elements_by_class_name('section-details-link')
+    courseTimes = driver.find_elements_by_class_name('meeting')
     # print("course name is "+ courseNames)
     print("Obtained " + webPage)
     return res
