@@ -23,9 +23,11 @@ def get_page(webPage):
     res = driver.execute_script("return document.documentElement.outerHTML")
     driver.find_element_by_xpath('//*[@id="classSearchLink"]/span').click()
     driver.find_element_by_xpath('//*[@id="select2-chosen-1"]').click()
-    
+    # writes the key into the scroll page
     driver.find_element_by_xpath('//*[@id="s2id_autogen1_search"]').send_keys('2020 Spring')
+    # allows user to manually click the drop down box option
     time.sleep(10)
+    #everything is automated after this
     driver.find_element_by_xpath('//*[@id="term-go"]').click()
     time.sleep(20)
     driver.find_element_by_xpath('//*[@id="search-go"]').click()
