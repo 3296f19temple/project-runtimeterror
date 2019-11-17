@@ -29,8 +29,9 @@ def get_page(webPage):
     time.sleep(20)
     driver.find_element_by_xpath('//*[@id="search-go"]').click()
     time.sleep(10)
-    driver.find_element_by_xpath('//*[@id="searchResultsTable"]/div[2]/div/button[3]').click()
-    time.sleep(5)
+    for x in range(1010):
+        driver.find_element_by_xpath('//*[@id="searchResultsTable"]/div[2]/div/button[3]').click()
+        time.sleep(5)
     # print("course name is "+ courseNames)
     print("Obtained " + webPage)
     return res
