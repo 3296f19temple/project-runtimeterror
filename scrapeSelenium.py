@@ -31,11 +31,11 @@ def get_page(webPage):
     driver.find_element_by_xpath('//*[@id="search-go"]').click()
     time.sleep(10)
     for x in range(1010):
-        driver.find_element_by_xpath('//*[@id="searchResultsTable"]/div[2]/div/button[3]').click()
+        time.sleep(5)
         html = driver.page_source
         soup = bs.BeautifulSoup(html,'lxml')
         f.write(str(soup))
-        time.sleep(5)
+        driver.find_element_by_xpath('//*[@id="searchResultsTable"]/div[2]/div/button[3]').click()
     # print("course name is "+ courseNames)
     print("Obtained " + webPage)
     f.close()
