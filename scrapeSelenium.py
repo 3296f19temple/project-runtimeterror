@@ -22,11 +22,13 @@ def get_page(webPage):
     res = driver.execute_script("return document.documentElement.outerHTML")
     driver.find_element_by_xpath('//*[@id="classSearchLink"]/span').click()
     driver.find_element_by_xpath('//*[@id="select2-chosen-1"]').click()
-    #driver.find_element_by_xpath('//*[@id="202003"]')
-    driver.find_element_by_xpath('//*[@id="s2id_autogen1_search"]').send_keys('2020 Spring')
     
-    #driver.sendKeys("2020 Spring")
+    driver.find_element_by_xpath('//*[@id="s2id_autogen1_search"]').send_keys('2020 Spring')
+    time.sleep(10)
     driver.find_element_by_xpath('//*[@id="term-go"]').click()
+    time.sleep(20)
+    driver.find_element_by_xpath('//*[@id="search-go"]').click()
+    time.sleep(10)
     # print("course name is "+ courseNames)
     print("Obtained " + webPage)
     return res
