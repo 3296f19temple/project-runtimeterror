@@ -12,7 +12,6 @@ import pickle
 # Finds all categories respective apps
 def get_page(webPage):
     print("Obtaining " + webPage + "...")
-
     # create a chrome instance
     driver = webdriver.Chrome()
 
