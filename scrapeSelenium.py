@@ -70,11 +70,6 @@ if __name__ == "__main__":
     webPage = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/classSearch/classSearch"
     get_page(webPage)
     print("DONE")
-
-    
-    # wait for javascript
-    res = driver.execute_script("return document.documentElement.outerHTML")
-
     print("Obtained " + webPage)
     
 
