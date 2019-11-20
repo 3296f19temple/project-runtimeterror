@@ -1,22 +1,17 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import sys
-import requests
 import bs4 as bs
 import os
 import time
 import datetime
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from tkinter import messagebox
-from selenium.webdriver.support import expected_conditions as ec
-import pandas as pd
+import pickle
 
 # Finds all categories respective apps
 def get_page(webPage):
-    f = open("Scraped.txt","w")
     print("Obtaining " + webPage + "...")
-    
     # create a chrome instance
     driver = webdriver.Chrome()
 
@@ -27,34 +22,46 @@ def get_page(webPage):
     res = driver.execute_script("return document.documentElement.outerHTML")
     driver.find_element_by_xpath('//*[@id="classSearchLink"]/span').click()
     driver.find_element_by_xpath('//*[@id="select2-chosen-1"]').click()
-    value = driver.find_element_by_xpath('//*[@id="s2id_autogen1_search"]')#.send_keys('2020 Spring')
-    value.send_keys('2020 Spring')
-    WebDriverWait(driver, 10)
-    #messagebox.showinfo(title='2-step verification', message='Finish on screen 2-step verification, and then click OK.')    
-    
-    x = WebDriverWait(driver, 10).until(ec.title_is("Banner"))
-   
-    #y = WebDriverWait(driver, 10).until(ec.presence_of_element_located((By.ID,"search-go")))
-    s = WebDriverWait(driver, 10).until(ec.element_to_be_clickable((By.ID,"search-go")))
-    s.click()
-    for i in range(2):
-        WebDriverWait(driver, 10)
-        html = driver.page_source
-        soup = bs.BeautifulSoup(html,'lxml')
-        print(soup.body.find('table', attrs={'class':'ui-widget-content resizable KeyTable draggable footable footable-loaded default grid'}).text)
-        #list = pd.read_html(html)
-        #parse the data on each page:
-        #courseList = soup.find('table')[0]
-        #f.write(str(soup))
-        #print(list[0])
-        #driver.find_element_by_xpath('//*[@id="searchResultsTable"]/div[2]/div/button[3]').click()
+    # writes the key into the scroll page
+    driver.find_element_by_xpath('//*[@id="s2id_autogen1_search"]').send_keys('2020 Spring')
+    # allows user to manually click the drop down box option
+    time.sleep(10)
+    #everything is automated after this
+    driver.find_element_by_xpath('/html/body/main/div[3]/div/div/div/div/div[1]/div[2]/div[2]/button').click()
+    time.sleep(10)
+    classes = []
+    for x in range(202):
+        print("PROCESSING PAGE " + str(x))
+        time.sleep(5)
+        try:
+            html = driver.page_source
+            soup = bs.BeautifulSoup(html,'lxml')
+            table = soup.find("tbody")
+            for index, row in enumerate(table.find_all("tr"), 1):
+                try:
+                    class_a = []
+                    for item in row.find_all("td"):
+                        class_a.append(item.text)
+
+                    classes.append(class_a)
+                    print("\tClass [" + str(index) + "] : ", end="")
+
+                    for item in class_a:
+                        print(str(item) + "|", end="")
+                    print()
+                    print()
+                except:
+                    print("ERROR PROCESSING CLASS : Skipping Class " + str(index))
+        except:
+            print("ERROR PROCESSING PAGE: Skipping page " + str(x))
+        driver.find_element_by_xpath('//*[@id="searchResultsTable"]/div[2]/div/button[3]').click()
     # print("course name is "+ courseNames)
-    print("Obtained " + webPage)
-    f.close()
+
+    with open("scraped.txt", "wb") as logFile:
+        pickle.dump(classes, logFile)
     return res
 
 if __name__ == "__main__":
-    webPage = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/classSearch/classSearch"#"https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/classSearch/classSearch"
-    page = get_page(webPage)
-
-    # print(page)
+    webPage = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/classSearch/classSearch"
+    get_page(webPage)
+    print("DONE")
