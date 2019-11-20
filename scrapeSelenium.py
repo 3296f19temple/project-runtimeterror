@@ -76,11 +76,7 @@ if __name__ == "__main__":
     res = driver.execute_script("return document.documentElement.outerHTML")
 
     print("Obtained " + webPage)
-    return res
+    
 
-if __name__ == "__main__":
-    webPage = "https://www.amazon.com"
-    page = get_page(webPage)
 
-    print(page)
 
