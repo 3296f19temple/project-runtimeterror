@@ -3,6 +3,7 @@
 
 import pickle
 import numpy as np
+from course import Course
 
 # CONSTANTS
 CRN = 0
@@ -92,7 +93,7 @@ def prettify(classes):
     for count, index in enumerate(bad_indices):
         index -= count
         del(classes[index])
-                
+
     return classes
 
 if __name__ == "__main__":
@@ -101,3 +102,24 @@ if __name__ == "__main__":
     classes = getData(scrapeFile)
     
     classes = prettify(classes)
+
+    courses = []
+    for i, class_a in enumerate(classes,1):
+        course = Course(class_a)
+        if(course.isValid):
+            courses.append(course)
+
+    print(str(len(classes)-len(courses)) + " Classes have been lost. Total complete classes : "
+          + str(len(courses)))
+
+    # initialize course dictionary
+    course_dict = {}
+    for class_a in courses:
+        title = class_a.get_title()
+        if(not(title in course_dict)):
+            course_dict[title] = []
+
+        course_dict[title].append(class_a)
+
+    with open("course_map.txt", "wb") as mapfile:
+        pickle.dump(course_dict, mapfile)
