@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
 @app.route('/')
 def home_page():
-    return '<h1>Home Page</h1>'
+    return render_template('home.html')
 
 @app.route('/schedule')
 def output_page():
