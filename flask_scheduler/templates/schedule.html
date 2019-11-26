@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Schedule</title>
-</head>
-<body>
-        <h1>Schedules</h1>
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+    {% for class in classes %}
+        <h1>{{class.name}}</h1>
+        <div>{{class.crn}}</div>
+        <div>{{class.meeting_time}}</div>
+    {% endfor %}
+{% endblock content %}
