@@ -1,5 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,url_for
+from forms import ScheduleForm
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'aae3d59542630a35356332ea6ca60652'
 
 classes = [
     {
@@ -16,7 +19,8 @@ classes = [
 
 @app.route('/')
 def home_page():
-    return render_template('home.html')
+    form = ScheduleForm()
+    return render_template('home.html',title='Schedule Maker - Home', form = form)
 
 @app.route('/schedule')
 def output_page():

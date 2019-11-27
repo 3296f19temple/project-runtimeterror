@@ -1,4 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Home Page</h1>
+   <div class='content-section'>
+       <form method="POST" action="">
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Schedule your classes for next semester</legend>
+                <div class = "form-group">
+                    {{ form.class1.label(class="form-control-label") }}
+                    {{ form.class1(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.class2.label(class="form-control-label") }}
+                    {{ form.class2(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.class3.label(class="form-control-label") }}
+                    {{ form.class3(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.class4.label(class="form-control-label") }}
+                    {{ form.class4(class="form-control form-control-lg") }}
+                </div>
+                <div class = "form-group">
+                    {{ form.class5.label(class="form-control-label") }}
+                    {{ form.class5(class="form-control form-control-lg") }}
+                </div>
+            </fieldset>
+            <a class="form-group" href="{{ url_for("output_page") }}">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </a>
+       </form>
+   </div>
 {% endblock content %}
