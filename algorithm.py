@@ -35,7 +35,7 @@ def makeSchedule(catalog, classes):
 		count = 0
 		tempSchedule = {}
 		classFlag = 1
-		print("j: \n",j)
+		#print("j: \n",j)
 		for cls in catalog:
 			#print("Cls: \n", cls)
 			for i in range(len(classes[cls])):
@@ -81,8 +81,8 @@ def __main__():
 	"Why care about College: Higher Education in American Life"]
 
 	catalog = getUserClasses(listClasses, classes)
-	#displaySelectedCourses(catalog, classes)
-	temp = makeSchedule(catalog, classes)
-	displaySelectedCourses(catalog, temp)
+	
+	schedules = makeSchedule(catalog, classes)
+	displaySelectedCourses(catalog, schedules)
 if __name__ == "__main__":
 	__main__()
