@@ -12,7 +12,8 @@ class Course:
             self.campus = class_a[2]
             self.hours = class_a[3]
             self.title = class_a[4]
-            self.week_day = class_a[5][0]
+            self.week_day = class_a[5][0].strip()
+
 
             start_time, end_time = class_a[5][1].split("-")
             start_time = start_time.strip()
@@ -60,7 +61,10 @@ class Course:
         time_a = datetime.time(hours,minute, 0)
 
         return time_a
-        
+
+    def get_times(self):
+        return(self.start_time, self.end_time, self.week_day, self.part_of_term)
+
     def display_course(self):
         print("CRN : " + str(self.CRN))
         print("\tSubject : " + str(self.subject))
