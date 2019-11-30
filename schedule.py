@@ -21,7 +21,7 @@ class Schedule:
             for index,day in enumerate(new_week,0):
             	for i, oldDay in enumerate(old_week,0):
                     if (day == oldDay):
-                	    if((new_start >= old_start and new_start <= old_end)or(new_end >= old_start and new_end <= old_end)):
+                	    if((new_start >= old_start and new_start <= old_end)or(new_end >= old_start and new_end <= old_end)or(old_start>= new_start and old_start<=new_end)):
                 		    time_conflict = True
             time_conflict = False
             if(time_conflict):
