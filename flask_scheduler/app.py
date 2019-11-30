@@ -1,4 +1,4 @@
-from flask import Flask, render_template,url_for
+from flask import Flask, render_template, url_for
 from forms import ScheduleForm
 app = Flask(__name__)
 
@@ -18,12 +18,12 @@ classes = [
 ]
 
 @app.route('/')
-def home_page():
+def home():
     form = ScheduleForm()
     return render_template('home.html',title='Schedule Maker - Home', form = form)
 
 @app.route('/schedule')
-def output_page():
+def schedule():
     return render_template('schedule.html',title='Schedule Maker - Schedule',classes=classes)
 
 if __name__ == '__main__':
