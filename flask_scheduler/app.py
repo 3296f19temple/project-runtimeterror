@@ -20,9 +20,12 @@ classes = [
 @app.route('/',methods=['GET','POST'])
 def home():
     form = ScheduleForm()
-    if form.validate_on_submit():
+    checkValidation = form.validate_on_submit()
+    if checkValidation:
         flash(f'Schedule will be made for {form.class1.data}, {form.class2.data}, {form.class3.data}','success')
-        return redirect(url_for(schedulePage))
+        return redirect(url_for('schedulePage'))
+    print(form.errors)
+    print(checkValidation)
     return render_template('home.html',title='Schedule Maker - Home', form = form)
 
 @app.route('/schedule')

@@ -2,6 +2,7 @@
 {% block content %}
    <div class='content-section'>
        <form method="POST" action="">
+           {{ form.csrf_token }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Schedule your classes for next semester</legend>
                 <div class = "form-group">
