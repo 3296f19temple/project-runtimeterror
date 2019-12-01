@@ -10,7 +10,13 @@ def home():
     checkValidation = form.validate_on_submit()
     if checkValidation:
         flash(f'Schedule will be made for {form.class1.data}, {form.class2.data}, {form.class3.data}','success')
-        classes = [
+        classes = []
+        classes.append(form.class1.data)
+        classes.append(form.class2.data)
+        classes.append(form.class3.data)
+        classes.append(form.class4.data)
+        classes.append(form.class5.data)
+        classList = [
             {
                 'crn':'11111',
                 'name':'class name 1',
@@ -22,7 +28,8 @@ def home():
                 'meeting_time':'MWF 6:00-6:50'
             }
         ]
-        return render_template('schedule.html',title='Schedule Maker - Schedule',classes=classes)
+        print(classes)
+        return render_template('schedule.html',title='Schedule Maker - Schedule',classes=classList)
     print(form.errors)
     print(checkValidation)
     return render_template('home.html',title='Schedule Maker - Home', form = form)
