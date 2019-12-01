@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for class in classes %}
+        <h1>{{class.name}}</h1>
+        <div>{{class.crn}}</div>
+        <div>{{class.meeting_time}}</div>
+    {% endfor %}
+{% endblock content %}
