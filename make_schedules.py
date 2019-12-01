@@ -29,7 +29,7 @@ class makeSchedule:
     def get_permutations(des):
         return list(itertools.product(*des))
 
-    def create_schedule:
+    def create_schedule():
         classes = {}
         with open("course_map.txt", "rb") as logFile:
             classes = pickle.load(logFile)
