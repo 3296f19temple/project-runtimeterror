@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
 from forms import ScheduleForm
 app = Flask(__name__)
 
@@ -17,14 +17,17 @@ classes = [
     }
 ]
 
-@app.route('/')
+@app.route('/',methods=['GET','POST'])
 def home():
     form = ScheduleForm()
+    if form.validate_on_submit():
+        flash(f'Schedule will be made for {form.class1.data}, {form.class2.data}, {form.class3.data}','success')
+        return redirect(url_for(schedulePage))
     return render_template('home.html',title='Schedule Maker - Home', form = form)
 
 @app.route('/schedule')
-def schedule():
+def schedulePage():
     return render_template('schedule.html',title='Schedule Maker - Schedule',classes=classes)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
