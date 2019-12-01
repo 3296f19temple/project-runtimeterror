@@ -3,19 +3,8 @@ from forms import ScheduleForm
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'aae3d59542630a35356332ea6ca60652'
+global form
 
-classes = [
-    {
-        'crn':'11111',
-        'name':'class name 1',
-        'meeting_time':'MWF 5:00-5:50'
-    },
-    {
-        'crn':'2222',
-        'name':'class name 2',
-        'meeting_time':'MWF 6:00-6:50'
-    }
-]
 
 @app.route('/',methods=['GET','POST'])
 def home():
@@ -23,7 +12,19 @@ def home():
     checkValidation = form.validate_on_submit()
     if checkValidation:
         flash(f'Schedule will be made for {form.class1.data}, {form.class2.data}, {form.class3.data}','success')
-        return redirect(url_for('schedulePage'))
+        classes = [
+            {
+                'crn':'11111',
+                'name':'class name 1',
+                'meeting_time':'MWF 5:00-5:50'
+            },
+            {
+                'crn':'2222',
+                'name':'class name 2',
+                'meeting_time':'MWF 6:00-6:50'
+            }
+        ]
+        return render_template('schedule.html',title='Schedule Maker - Schedule',classes=classes)
     print(form.errors)
     print(checkValidation)
     return render_template('home.html',title='Schedule Maker - Home', form = form)
