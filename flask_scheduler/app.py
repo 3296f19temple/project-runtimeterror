@@ -3,8 +3,6 @@ from forms import ScheduleForm
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'aae3d59542630a35356332ea6ca60652'
-global form
-
 
 @app.route('/',methods=['GET','POST'])
 def home():
