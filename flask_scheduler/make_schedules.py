@@ -37,14 +37,9 @@ class makeSchedule:
 
         courses_desired = classList
 
-        print(courses_desired)
-        print(len(courses_desired))
-        print()
-        
         des = self.get_des(classes, courses_desired)
 
         course_perm = self.get_permutations(des)
-
 
         schedules = []
 
@@ -53,8 +48,6 @@ class makeSchedule:
             sched = Schedule()
 
             for class_a in schedule:
-                class_a.display_course()
-
                 # must still check if time conflict occurs
                 isValid = sched.add_class(class_a)
                 if(not isValid):
@@ -62,4 +55,9 @@ class makeSchedule:
                 
             if(isValid):
                 schedules.append(sched)
+
+        for schedule in schedules:
+            schedule.display_schedule()
+
+        print("Total schedules: " + str(len(schedules)))
         return schedules

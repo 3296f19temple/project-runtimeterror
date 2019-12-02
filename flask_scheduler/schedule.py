@@ -37,5 +37,9 @@ class Schedule:
         print("SCHEDULE")
         for class_a in self.class_list:
             class_a.display_course()
+        print("Total Courses: " + str(len(self.class_list)))
         print("-------------")
 
+
+    def get_courses(self):
+        return self.class_list
