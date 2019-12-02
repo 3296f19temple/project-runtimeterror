@@ -29,10 +29,9 @@ class Schedule:
                     # if one of the days match
                     if (day == oldDay):
                         # check for time conflict
-                	if((new_start >= old_start and new_start <= old_end)or(new_end >= old_start and new_end <= old_end)or(old_start>= new_start and old_start<=new_end)):
+                        if((new_start >= old_start and new_start <= old_end) or (new_end >= old_start and new_end <= old_end)or(old_start>= new_start and old_start<=new_end)):
                             # if time conflict, note it
-                	    time_conflict = True
-            time_conflict = False
+                            time_conflict = True
             # if time conflict occurs, return false
             if(time_conflict):
                 return False

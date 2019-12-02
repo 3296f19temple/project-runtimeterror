@@ -114,6 +114,64 @@ class Course:
 
         return time_a
 
+    # getters for private variables
+    def get_CRN(self):
+        return str(self.CRN)
+
+    def get_subject(self):
+        return str(self.subject)
+
+    def get_section(self):
+        return str(self.course_section)
+
+    def get_campus(self):
+        return str(self.get_campus)
+
+    def get_hours(self):
+        return str(self.hours)
+
+    def get_title(self):
+        return str(self.title)
+
+    def get_day_of_week(self):
+        return str(self.week_day)
+
+    def get_start_time(self):
+        return str(self.start_time)
+
+    def get_end_time(self):
+        return str(self.end_time)
+
+    def get_type(self):
+        return str(self.type_a)
+
+    def get_building(self):
+        return str(self.building)
+
+    def get_room(self):
+        return str(self.room)
+
+    def get_start_date(self):
+        return str(self.start_date)
+
+    def get_end_date(self):
+        return str(self.end_date)
+
+    def get_available_seats(self):
+        return str(self.seat_availability)
+
+    def get_available_wl(self):
+        return str(self.waitlist_availability)
+
+    def get_professor(self):
+        return str(self.professor)
+
+    def get_term(self):
+        return str(self.part_of_term)
+
+    def isValid(self):
+        return self.isValid
+    
     # returns the start and end times
     def get_times(self):
         return(self.start_time, self.end_time, self.week_day, self.part_of_term)
@@ -124,7 +182,7 @@ class Course:
         print("\tSubject : " + str(self.subject))
         print("\tCourse Section : " + str(self.course_section))
         print("\tCampus : " + str(self.campus))
-        print("\tHourse : " + str(self.hours))
+        print("\tHours : " + str(self.hours))
         print("\tTitle : " + str(self.title))
         print("\tDay of Week : " + str(self.week_day))
         print("\tStart Time : " + str(self.start_time))
