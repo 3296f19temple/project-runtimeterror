@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import ScheduleForm
+from make_schedules import makeSchedule
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'aae3d59542630a35356332ea6ca60652'
@@ -16,6 +17,9 @@ def home():
         classes.append(form.class3.data)
         classes.append(form.class4.data)
         classes.append(form.class5.data)
+        sched = makeSchedule()
+        schedList = sched.create_schedule(classes)
+        print(schedList)
         classList = [
             {
                 'crn':'11111',

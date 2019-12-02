@@ -19,7 +19,7 @@ class makeSchedule:
 
         return des_class
 
-    def get_des(classes, courses_desired):
+    def get_des(self,classes, courses_desired):
         temp = []
         for key in courses_desired:
             temp.append(classes[key])
@@ -29,12 +29,12 @@ class makeSchedule:
     def get_permutations(des):
         return list(itertools.product(*des))
 
-    def create_schedule():
+    def create_schedule(self, classList):
         classes = {}
         with open("course_map.txt", "rb") as logFile:
             classes = pickle.load(logFile)
 
-        courses_desired = get_classes(classes, 5)
+        courses_desired = classList
 
         print(courses_desired)
         print(len(courses_desired))
@@ -61,3 +61,4 @@ class makeSchedule:
                 
             if(isValid):
                 schedules.append(sched)
+        return schedules
