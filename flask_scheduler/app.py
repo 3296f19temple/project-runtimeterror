@@ -33,7 +33,7 @@ def home():
             }
         ]
         print(classes)
-        return render_template('schedule.html',title='Schedule Maker - Schedule',classes=classList)
+        return render_template('schedule.html',title='Schedule Maker - Schedule',schedules=schedList)
     print(form.errors)
     print(checkValidation)
     return render_template('home.html',title='Schedule Maker - Home', form = form)
