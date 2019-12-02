@@ -8,7 +8,7 @@ from schedule import Schedule
 import itertools
 import random
 class makeSchedule:
-    def get_classes(classes, x):
+    def get_classes(self, classes, x):
         l = [random.randint(0,len(classes)-1) for i in range(x)]
 
         des_class = []
@@ -19,14 +19,15 @@ class makeSchedule:
 
         return des_class
 
-    def get_des(self,classes, courses_desired):
+    def get_des(self, classes, courses_desired):
         temp = []
         for key in courses_desired:
-            temp.append(classes[key])
+            if(key in classes):
+                temp.append(classes[key])
         
         return temp
 
-    def get_permutations(des):
+    def get_permutations(self, des):
         return list(itertools.product(*des))
 
     def create_schedule(self, classList):
@@ -40,9 +41,9 @@ class makeSchedule:
         print(len(courses_desired))
         print()
         
-        des = get_des(classes, courses_desired)
+        des = self.get_des(classes, courses_desired)
 
-        course_perm = get_permutations(des)
+        course_perm = self.get_permutations(des)
 
 
         schedules = []
