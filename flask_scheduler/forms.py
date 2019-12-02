@@ -8,4 +8,6 @@ class ScheduleForm(FlaskForm):
     class3 = StringField('Class 3')
     class4 = StringField('Class 4')
     class5 = StringField('Class 5')
+    class6 = StringField('Class 6')
+    class7 = StringField('Class 7')
     submit = SubmitField('Schedule')

@@ -17,23 +17,14 @@ def home():
         classes.append(form.class3.data)
         classes.append(form.class4.data)
         classes.append(form.class5.data)
+        classes.append(form.class6.data)
+        classes.append(form.class7.data)
         sched = makeSchedule()
         schedList = sched.create_schedule(classes)
         print(schedList)
-        classList = [
-            {
-                'crn':'11111',
-                'name':'class name 1',
-                'meeting_time':'MWF 5:00-5:50'
-            },
-            {
-                'crn':'2222',
-                'name':'class name 2',
-                'meeting_time':'MWF 6:00-6:50'
-            }
-        ]
         print(classes)
-        return render_template('schedule.html',title='Schedule Maker - Schedule',schedules=schedList)
+        length = len(schedList)
+        return render_template('schedule.html',title='Schedule Maker - Schedule',schedules=schedList, length=length)
     print(form.errors)
     print(checkValidation)
     return render_template('home.html',title='Schedule Maker - Home', form = form)

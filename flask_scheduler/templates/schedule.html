@@ -1,8 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
+    <div class ="alert alert-success">You have made {{ length }} different schedules.</div>
     {% for schedule in schedules %}
+        <h1 class="cities"/>Schedule</h1>
         {% for course in schedule.get_courses() %}
-            <div>{{ course.display_course() }}</div>
+            <div class="container">
+                <div>Course Name: {{ course.get_title() }}</div>
+                <div>Section: {{course.get_section() }}</div>
+                <div>CRN: {{ course.get_CRN() }}</div>
+                <div>Class meets on {{ course.get_day_of_week() }} from {{ course.get_start_time() }} to {{ course.get_end_time() }} in Room {{ course.get_room() }} in {{ course.get_building() }}.</div>
+                <div>Professor: {{ course.get_professor() }}</div>
+                <div>Seat Availability: {{ course.get_available_seats() }}</div>
+                <div>Waitlist Availability: {{ course.get_available_wl() }}</div>
+                <div>---------------------------------------</div>
+            </div>
         {% endfor %}
+        <h1 class="cities">------------------------------------</h1>
     {% endfor %}
 {% endblock content %}
