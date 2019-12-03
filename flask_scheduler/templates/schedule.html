@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class ="alert alert-success">You have made {{ length }} different schedules.</div>
-    {% for schedule in schedules %}
+    {% for i in range(length) %}
         <div class = "border border-primary mx-auto" style="width: 400px;">
-            <h2>Schedule</h2>
-            {% for course in schedule.get_courses() %}
+            {% set element = i +1 %}
+            <h2>Schedule {{ element }}</h2>
+            {% for course in schedules[i].get_courses() %}
                 <div class="container">
                     <div>Course Name: {{ course.get_title() }}</div>
                     <div>Section: {{course.get_section() }}</div>
