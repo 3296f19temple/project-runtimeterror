@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class ="alert alert-success">You have made {{ length }} different schedules.</div>
+    <div class="alert alert-primary">Blue Highlights might be relevant information to you.</div>
+    {% for i in range(length) %}
+        <div class = "alert alert-white mx-auto" style="width: 600px;">
+            {% set element = i +1 %}
+            <h2>Schedule {{ element }}</h2>
+            {% for course in schedules[i].get_courses() %}
+                <div class="container">
+                    <div>Course Name: {{ course.get_title() }}</div>
+                    <div>Section: {{course.get_section() }}</div>
+                    <div class="bg-primary text-white">CRN: {{ course.get_CRN() }}</div>
+                    <div>Class meets on <span class="bg-primary text-white">{{ course.get_day_of_week() }} from {{ course.get_start_time() }} to {{ course.get_end_time() }}</span> in Room {{ course.get_room() }} in {{ course.get_building() }}.</div>
+                    <div class="bg-primary text-white">Professor: {{ course.get_professor() }}</div>
+                    <div>Seat Availability: {{ course.get_available_seats() }}</div>
+                    <div>Waitlist Availability: {{ course.get_available_wl() }}</div>
+                    <div>---------------------------------------</div>
+                </div>
+    {% endfor %}
+    </div>
+        
+    {% endfor %}
+{% endblock content %}
