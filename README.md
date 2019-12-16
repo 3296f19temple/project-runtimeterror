@@ -29,6 +29,8 @@ I am able to work on any aspect of the project, though I feel I would be most eq
 Luke: Web scraping can often be unreliable as web sites can randomly block a scraper through pattern / bot detection. Additionally, if a web sites design changes, the entire parsing process can change. ALthough we may be able to scrape periodically, it would be a good idea to cache scraped information in a database or get direct access to a database to avoid web scraping altogether.
 
 Saad: Writing a robust web scraper is often difficult because many sites try to prevent web scraping activities.Scraping simple website that don't have js/ajax mechanism is not easy but simpler websites work just fine. Since Temple does not let us scrape their website, we should try to get access to Temple's database.
+Problem arises when we scrape the data manually as the website does not allow a bot to interact with certain elements. As such we need to add in manual clicks to it to get arround it
+
 
 ## Required Resources
 - Group members 
